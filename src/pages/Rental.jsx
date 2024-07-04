@@ -49,7 +49,7 @@ const Rental = () => {
   const handleCreateRental = async (values) => {
     const newRental = {
       ...values,
-      librarianId: 1,
+      librarianId: JSON.parse(localStorage.getItem("user")).id,
     };
     const createdRental = await createRental(newRental);
     setRentals([...rentals, createdRental]);
